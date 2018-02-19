@@ -28,7 +28,6 @@ window.App=new Vue({
   mounted(){
     this.$auth.login({
       method: 'GET',
-      url: 'login'
     })
   }
 })

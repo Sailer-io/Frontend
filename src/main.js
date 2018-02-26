@@ -24,10 +24,5 @@ window.App = new Vue({
   el: `#app`,
   router,
   components: {App},
-  template: `<App/>`,
-  mounted () {
-    this.$auth.login({
-      method: `GET`
-    })
-  }
+  template: `<App/>`
 })

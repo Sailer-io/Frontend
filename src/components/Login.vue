@@ -7,23 +7,16 @@
     <div class="login-box-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="../../index2.html" method="post">
+      <form v-on:submit.prevent="login()">
         <div class="form-group has-feedback">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" placeholder="E-mail" value="l@l.l" v-bind="email" required>
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        </div>
+        </div>"
         <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" value="test" v-bind="password" required>
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
-          <div class="col-xs-8">
-            <div class="checkbox icheck">
-              <label>
-                <input type="checkbox"> Remember Me
-              </label>
-            </div>
-          </div>
           <!-- /.col -->
           <div class="col-xs-4">
             <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
@@ -53,8 +46,18 @@
 <script>
 export default {
   name: `login`,
-  afterMount () {
-    console.log(true)
+  data () {
+    return {
+      email: ``,
+      password: ``
+    }
+  },
+  methods: {
+    login () {
+      this.$auth.login({data: {email: this.email, password: this.password}}).then(() => {
+        this.$http.get(`whoami`).then(console.log)
+      })
+    }
   }
 }
 </script>

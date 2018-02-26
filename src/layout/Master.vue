@@ -497,7 +497,7 @@
 
 <script>
 export default {
-  name: 'master'
+  name: `master`
 }
 </script>
 

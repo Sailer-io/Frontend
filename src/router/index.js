@@ -8,19 +8,19 @@ Vue.use(Router)
 let router = new Router({
   routes: [
     {
-      path: '/',
-      name: 'Master',
+      path: `/`,
+      name: `Master`,
       component: Master,
       meta: {
         auth: true
       }
     },
     {
-      path: '/login',
-      name: 'login',
-      component: Login,
+      path: `/login`,
+      name: `login`,
+      component: Login
     }
-  ],
+  ]
 })
 
 router.beforeEach((to, from, next) => {
@@ -28,7 +28,7 @@ router.beforeEach((to, from, next) => {
   console.log(authRequired)
   const authed = false
   if (authRequired && !authed) {
-    next('/login')
+    next(`/login`)
   } else {
     next()
   }

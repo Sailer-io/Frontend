@@ -11,23 +11,23 @@ Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios)
 
-Vue.axios.defaults.baseURL = 'http://localhost:8000/api'
+Vue.axios.defaults.baseURL = `http://localhost:8000/api`
 
-Vue.router=router
+Vue.router = router
 Vue.use(VueAuth, {
-  auth: require('@websanova/vue-auth/drivers/auth/bearer.js'),
-  http: require('@websanova/vue-auth/drivers/http/axios.1.x.js'),
-  router: require('@websanova/vue-auth/drivers/router/vue-router.2.x.js')
+  auth: require(`@websanova/vue-auth/drivers/auth/bearer.js`),
+  http: require(`@websanova/vue-auth/drivers/http/axios.1.x.js`),
+  router: require(`@websanova/vue-auth/drivers/router/vue-router.2.x.js`)
 })
 /* eslint-disable no-new */
-window.App=new Vue({
-  el: '#app',
+window.App = new Vue({
+  el: `#app`,
   router,
   components: {App},
-  template: '<App/>',
-  mounted(){
+  template: `<App/>`,
+  mounted () {
     this.$auth.login({
-      method: 'GET',
+      method: `GET`
     })
   }
 })

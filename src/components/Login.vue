@@ -52,9 +52,9 @@
 
 <script>
 export default {
-  name: 'login',
-  afterMount (){
-    console.log(true);
+  name: `login`,
+  afterMount () {
+    console.log(true)
   }
 }
 </script>

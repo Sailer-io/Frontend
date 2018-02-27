@@ -11,7 +11,7 @@ Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios)
 
-Vue.axios.defaults.baseURL = `http://localhost:8000/api`
+Vue.axios.defaults.baseURL = `http://localhost:8000`
 
 Vue.router = router
 Vue.use(VueAuth, {

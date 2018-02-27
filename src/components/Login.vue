@@ -9,11 +9,11 @@
 
       <form v-on:submit.prevent="login()">
         <div class="form-group has-feedback">
-          <input type="email" class="form-control" placeholder="E-mail" value="l@l.l" v-bind="email" required>
+          <input type="email" class="form-control" placeholder="E-mail" v-model="email" required>
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>"
         <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Password" value="test" v-bind="password" required>
+          <input type="password" class="form-control" placeholder="Password" v-model="password" required>
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">

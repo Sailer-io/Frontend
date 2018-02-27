@@ -1,7 +1,7 @@
 {
-  "name": "dwm",
-  "version": "1.0.0",
-  "description": "Docker Web Manager Frontend",
+  "name": "sailer-frontend",
+  "version": "0.1.0-alpha.1",
+  "description": "Sailer Frontend",
   "author": "Lénaïc Grolleau <lenaic@lenaic.me>",
   "private": false,
   "scripts": {

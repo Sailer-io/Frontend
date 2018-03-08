@@ -481,7 +481,9 @@
       </section>
 
       <!-- Main content -->
-      <div id="app"></div>
+      <div id="app">
+        <router-view></router-view>
+      </div>
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -497,7 +499,12 @@
 
 <script>
 export default {
-  name: `master`
+  name: `master`,
+  beforeCreate () {
+    if (!this.$auth.check()) {
+      this.$router.replace(`login`)
+    }
+  }
 }
 </script>
 

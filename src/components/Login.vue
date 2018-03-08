@@ -8,10 +8,11 @@
       <p class="login-box-msg">Sign in to start your session</p>
 
       <form v-on:submit.prevent="login()">
+        <div class="alert alert-danger" v-if="badCred"><i class="fa fa-times"></i> Bad credentials!</div>
         <div class="form-group has-feedback">
           <input type="email" class="form-control" placeholder="E-mail" v-model="email" required>
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        </div>"
+        </div>
         <div class="form-group has-feedback">
           <input type="password" class="form-control" placeholder="Password" v-model="password" required>
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
@@ -49,13 +50,17 @@ export default {
   data () {
     return {
       email: ``,
-      password: ``
+      password: ``,
+      badCred: false
     }
   },
   methods: {
     login () {
+      this.badCred = false
       this.$auth.login({data: {email: this.email, password: this.password}}).then(() => {
-        this.$http.get(`whoami`).then(console.log)
+        this.$router.push(`home`)
+      }).catch(() => {
+        this.badCred = true
       })
     }
   }

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Master from '../layout/Master'
+import HelloWorld from '../components/HelloWorld'
 import Login from '@/components/Login'
 
 Vue.use(Router)
@@ -9,11 +10,14 @@ let router = new Router({
   routes: [
     {
       path: `/`,
-      name: `Master`,
+      name: `home`,
       component: Master,
-      meta: {
-        auth: true
-      }
+      children: [
+        {
+          path: `/`,
+          component: HelloWorld
+        }
+      ]
     },
     {
       path: `/login`,
@@ -21,17 +25,6 @@ let router = new Router({
       component: Login
     }
   ]
-})
-
-router.beforeEach((to, from, next) => {
-  const authRequired = to.matched.some((route) => route.meta.auth)
-  console.log(authRequired)
-  const authed = false
-  if (authRequired && !authed) {
-    next(`/login`)
-  } else {
-    next()
-  }
 })
 
 export default router

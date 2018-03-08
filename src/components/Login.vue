@@ -63,6 +63,11 @@ export default {
         this.badCred = true
       })
     }
+  },
+  beforeCreate () {
+    if (this.$auth.check()) {
+      this.$router.replace(`/`)
+    }
   }
 }
 </script>
